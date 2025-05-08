@@ -32,7 +32,7 @@ npm run dev
 
 A ce stade, on peut tester l'UI sur http://localhost:3000
 
-## Setup du build poour tourner en prod
+## Setup du build pour tourner en prod
 
 Dans le dépot, lancer le build pour générer e dossier **.next** optimisé.
 
