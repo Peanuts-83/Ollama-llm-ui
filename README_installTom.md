@@ -21,7 +21,7 @@ nvm alias default 20
 
 ```bash
 cd /opt
-git clone https://github.com/jakobhoeg/nextjs-ollama-llm-ui
+git clone https://github.com/Peanuts-83/Ollama-llm-ui
 cd nextjs-ollama-llm-ui
 # le .env contient l'IP du serveur qui fourni l'api (la petite tour du bureau)
 # OLLAMA_URL="http://192.168.0.151:11400"
