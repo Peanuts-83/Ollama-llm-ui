@@ -22,7 +22,7 @@ nvm alias default 20
 ```bash
 cd /opt
 git clone https://github.com/Peanuts-83/Ollama-llm-ui
-cd nextjs-ollama-llm-ui
+cd Ollama-llm-ui
 # le .env contient l'IP du serveur qui fourni l'api (la petite tour du bureau)
 # OLLAMA_URL="http://192.168.0.151:11400"
 # nginx gère le reverse-proxy vers localhost:11434
@@ -45,7 +45,7 @@ npm run build
 Pour automatiser le service et qu'il soit lancé au démarrage du poste.
 
 ```bash
-sudo nano /etc/systemd/system/nextjs-ollama-llm-ui.service
+sudo nano /etc/systemd/system/ollama-llm-ui.service
 ```
 
 Cette config diffère de celle fourni par la doc de référence, car il s'agit d'une config de prod.
@@ -58,7 +58,7 @@ After=ollama.service
 Requires=ollama.service
 
 [Service]
-WorkingDirectory=/opt/nextjs-ollama-llm-ui
+WorkingDirectory=/opt/Ollama-llm-ui
 ExecStart=/home/tom/.nvm/versions/node/v20.19.0/bin/npm start
 Restart=always
 RestartSec=10
@@ -79,12 +79,10 @@ Relancer le daemon systemctl et le service.
 
 ```bash
 systemctl daemon-reload
-systemctl enable nextjs-ollama-llm-ui.service
-systemctl start nextjs-ollama-llm-ui.service
-systemctl status nextjs-ollama-llm-ui.service
-```
-
-### Bonus: changer de port
+systemctl enable ollama-llm-ui.service
+systemctl start ollama-llm-ui.service
+systemctl status ollama-llm-ui.service
+```Bonus: changer de port
 
 Si on veut que le service écoute un autre port, modifier le fichier de config du service (exemple ici sur le port 8080).
 
