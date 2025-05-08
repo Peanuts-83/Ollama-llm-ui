@@ -86,7 +86,7 @@ systemctl status nextjs-ollama-llm-ui.service
 
 ### Bonus: changer de port
 
-Si on veut que le serice écoute un autre port, modifier le fichier de config du service (exemple ici sur le port 8080).
+Si on veut que le service écoute un autre port, modifier le fichier de config du service (exemple ici sur le port 8080).
 
 ```bash
 ExecStart=/home/tom/.nvm/versions/node/v20.19.0/bin/npm start -- -p 8080
