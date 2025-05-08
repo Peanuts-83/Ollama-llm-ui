@@ -82,7 +82,9 @@ systemctl daemon-reload
 systemctl enable ollama-llm-ui.service
 systemctl start ollama-llm-ui.service
 systemctl status ollama-llm-ui.service
-```Bonus: changer de port
+```
+
+### Bonus: changer de port
 
 Si on veut que le service écoute un autre port, modifier le fichier de config du service (exemple ici sur le port 8080).
 
