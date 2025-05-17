@@ -1,4 +1,4 @@
-# Process d'installation pour utlisation d'un LLM local Ollama
+# Process d'installation pour utilisation d'un LLM local Ollama
 
 La doc de référence est un billet de blog: https://www.linuxtricks.fr/wiki/ia-une-web-interface-a-ollama-avec-ollama-llm-ui-projet-en-dev
 
@@ -91,3 +91,25 @@ Si on veut que le service écoute un autre port, modifier le fichier de config d
 ```bash
 ExecStart=/home/tom/.nvm/versions/node/v20.19.0/bin/npm start -- -p 8080
 ```
+
+## Open WebUI
+
+ref https://github.com/open-webui/open-webui <br>
+ref https://docs.openwebui.com/
+
+> Une alternative plus performante est fournie sur le dépot en ref, qui peut s'installer via une ligne de commande docker (libre à vous de créer un service pour automatiser le process si cette solution vous plait).
+
+Les options utilisées ici sont les suivantes:
+* -d detached
+* -p expose le port 3001 (le port 300 est pris par Ollama-llm-ui)
+* -e variable d'environnement qui pointe sur mon API locale
+* -v database de backup des conversations
+* --name le nom du conteneur
+* --restart toujours
+* ghcr.io/open-webui/open-webui:main nom de l'image source docker
+
+```bash
+docker run -d -p 3001:8080 -e OLLAMA_BASE_URL=http://192.168.0.151:11400 -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+```
+
+De nombreuses options sont possibles, cf la doc en ligne.
