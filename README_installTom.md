@@ -102,6 +102,7 @@ ref https://docs.openwebui.com/
 Les options utilisées ici sont les suivantes:
 * -d detached
 * -p expose le port 3001 (le port 300 est pris par Ollama-llm-ui)
+* gpus activer calculs GPU si Nvidia dispo (si erreur driver [voir ce fix](https://stackoverflow.com/questions/75118992/docker-error-response-from-daemon-could-not-select-device-driver-with-capab))
 * -e variable d'environnement qui pointe sur mon API locale
 * -v database de backup des conversations
 * --name le nom du conteneur
@@ -109,7 +110,7 @@ Les options utilisées ici sont les suivantes:
 * ghcr.io/open-webui/open-webui:main nom de l'image source docker
 
 ```bash
-docker run -d -p 3001:8080 -e OLLAMA_BASE_URL=http://192.168.0.151:11400 -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+docker run -d -p 3001:8080 --gpus all -e OLLAMA_BASE_URL=http://192.168.0.151:11400 -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 ```
 
 De nombreuses options sont possibles, cf la doc en ligne.
